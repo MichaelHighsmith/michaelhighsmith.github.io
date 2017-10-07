@@ -1,0 +1,464 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" href="blueberry.css">
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style type="text/css">
+  {
+    margin: 0;
+    border: 0;
+    padding: 0;
+  }
+  body{
+    background: #f0f0f0;
+    font: 14px/20px Arial, San-Serif;
+    color: #555;
+    margin: 0;
+  }
+  h1{
+    text-align: center;
+    font-size: 180%;
+    line-height: 120%;
+    padding: 5% 0;
+  }
+  h2{
+    text-decoration: underline;
+    line-height: 280%;
+    padding-left: 2%;
+  }
+  h3{
+    line-height: 10px;
+    padding: 2% 0;
+  }
+  p{
+    padding: 1%;
+  }
+  img{
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+  a{
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover{
+    color: #FFF;
+    text-decoration: underline;
+  }
+  header{
+    background: #405580;
+    width: 100%;
+    height: 140px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0.90;
+  }
+  #logo{
+    margin: 20px;
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: url(images/SatyrLabsWordLogo.png) no-repeat center;
+  }
+  nav{
+    float: right;
+    padding: 35px 20px 20px 0px;
+  }
+  #menu-icon{
+    display: hidden;
+    width: 40px;
+    height: 40px;
+    background: url(http://www.w3newbie.com/wp-content/uploads/icon.png) center;
+  }
+  a:hover#menu-icon{
+    border-radius: 4px 4px 0 0;
+  }
+  ul{
+    list-style: none;
+  }
+  nav ul li{
+    display: inline-block;
+    float: left;
+    padding: 10px;
+  }
+  .current{
+    color: #FFF;
+    text-decoration: underline;
+  }
+  #doc{
+    margin: 150px 100px 0 0;
+  }
+  #content{
+    margin: 0 auto;
+    max-width: 1140px;
+    margin-top: 110px;
+  }
+  .blueberry{
+    max-width: 960px;
+    margin-top: 110px;
+  }
+  section{
+    width: 29%;
+    float: left;
+    margin: 2% 2%;
+    text-align: center;
+  }
+  #left{
+    padding: 10px;
+    background-color: #5DADE2;
+  }
+  #right{
+    width: 50%;
+    background-color: #5DADE2;
+  }
+  #left, #right{
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+  }
+.clear{
+  clear: both;
+}
+article{
+  float: left;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+  padding: 7%;
+}
+
+aside{
+  float: right;
+  margin: 0 auto;
+  width: 30%;
+  height: auto;
+  padding: 3%;
+}
+ul.gym li{
+  padding-left: 3%;
+}
+footer{
+  background: #333333;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.90;
+}
+footer p, footer h3{
+  color: #FFF;
+}
+footer p a{
+  color: #FFF;
+  text-decoration: none;
+}
+ul.social li {
+  display: inline;
+}
+ul.social.li img{
+  height: 50px;
+}
+footer.second{
+  border-top: 1px solid #4D4E50;
+  background-color: #333333;
+  max-height: 50px;
+  text-align: center;
+  opacity: 0.95;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #5DADE2;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+}
+
+.modal-body{
+    background-color: #5DADE2;
+    border: 1px solid #888;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    width: 80%;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*  Media  */
+@media screen and (max-width: 478px){
+  body {
+    position: absolute;
+  }
+}
+@media screen and (max-width: 740){
+  header{
+    position: absolute;
+  }
+  #menu-icon{
+    display: inline-block;
+  }
+  nav ul, nav:active ul{
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #405580;
+    border: 1px solid #FFF;
+    right: 20px;
+    top: 60px;
+    width: 50%;
+    border-radius: 2px 0 2px 2px;
+  }
+  nav li {
+    text-align: center;
+    width: 100%
+    padding: 10px 0;
+    margin: 0;
+  }
+  nav:hover ul{
+    display: block;
+  }
+  section {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  article {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="jquery.blueberry.js"></script>
+
+<script>
+  $(window).load(function() {
+    $('.blueberry').blueberry();
+  });
+</script>
+
+
+</head>
+
+  <body>
+    <div class="container"> 
+
+    <header>
+      <a href="#" id="logo"></a>
+      <nav>
+        <a href="#" id = "menu-icon"></a>
+        <ul>
+          <li><a href="#" class="current">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <div id="doc">
+      <div id="content">
+        <div class="blueberry">
+          <ul class="slides">
+          <li><img src="images/office.jpg" class="img-responsive"></li>
+          <li><img src="images/arch.jpg" class="img-responsive"></li>
+          <li><img src="images/coding.jpg" class="img-responsive"></li>
+          <li><img src="images/camera.jpg" class="img-responsive"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <img src="images/phone_image.png" class="img-responsive"/>
+      <h1>App Design</h1>
+      <p>Our team will work with you to create aesthetic layouts that are not only user friendly, but leave a lasting impression on the intended audience </p>
+    </section>
+
+    <section>
+      <img src="images/thought_image.png" class="img-responsive"/>
+      <h1>App Development</h1>
+      <p>After planning your project's structure, our team will dive into the backend and utilize the latest technologies for both Android and iOS to create a platform independent success</p>
+    </section>
+
+    <section>
+      <img src="images/wrench_image.png" class="img-responsive"/>
+      <h1>Support and Maintenance</h1>
+      <p>The journey is far from over after publication, and our team will work to ensure your app is performing as expected long after its release date</p>
+    </section>
+
+    <div class="clear"></div>
+    <article>
+        <img src="images/table.jpg" class="img-responsive"/>
+      
+      
+    </article>
+    <aside>
+      <h2>Our Team Specializes in</h2>
+      <ul class="gym">
+        <li><h3>Data Management</h3></li>
+        <li><h3>Social Media Platforms</h3></li>
+        <li><h3>Captivating User Interfaces</h3></li>
+        <li><h3>Networking</h3></li>
+        <li><h3>Drinking Coffee</h3></li>
+        <li><h3>Being Fun To Work With</h3></li>
+        <li><h3>Customer Satisfaction</h3></li>
+      </ul>
+    </aside>
+
+    <div class="clear"></div>
+      <section>
+        <h1>LifeUp</h1>
+        <img src="images/LifeUpIcon.png" class="img-responsive" data-toggle="modal" data-target="#lifeUpModal"/>
+        <p>A productivity app that turns the user's To-Do list into an adventure.</p>
+      </section>
+      <section>
+        <h1>MemeHub</h1>
+        <img src="images/MemeHubIcon.png" class="img-responsive" data-toggle="modal" data-target="#memeHubModal"/>
+        <p>An image sharing app that allows users to swipe left or right, and update the kinds of images that appear in their feed.</p>
+      </section>
+      <section>
+        <h1>NewsNet</h1>
+        <img src="images/NewsNetIcon.png" class="img-responsive" data-toggle="modal" data-target="#newsNetModal"/>
+        <p>A news app that condenses more than 70 news sources into one and allows users to easily stay up to date on events worldwide. </p>
+      </section>
+
+      <footer>
+        <section>
+          <h3><b>Satyr Labs</b></h3>
+          <p><b>636-368-6908</b><br><br>
+          inquiries@satyrlabs.com</p>
+        </section>
+
+        <section>
+          <h3>Connect with us</h3>
+          <ul class="social">
+          <li><a href="https://www.facebook.com/"><img src="http://www.w3newbie.com/wp-content/uploads/facebook1.png"/></a></li>
+          <li><a href="https://plus.google.com/"><img src="http://www.w3newbie.com/wp-content/uploads/googleplus.png"/></a></li>
+          <li><a href="https://twitter.com/?lang=en"><img src="http://www.w3newbie.com/wp-content/uploads/twitter1.png"/></a></li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="images/SatyrLabsWordLogoTransparent.png"/>
+        </section>
+      </footer>
+
+      <footer class="second">
+        <p>@ Copyright - Satyr Labs 2017</p>       
+      </footer>
+
+
+    <div class="modal" id="lifeUpModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="lifeUpLabel">LifeUp</h3>
+        </div>
+        <div class="modal-body">
+          <div id="left">
+            <img class="img-responsive"  src="images/LifeUpModal.jpg">
+          </div>
+          <div id="right">
+            <p>LifeUp was Satyr Labs first project to be published on the Google Play Store. This productivity app allows users to create a To-Do list that gives them gold and experience for completing tasks, while taking away gold when engaging in unproductive behaviors.  After accruing enough gold users are able to purchase accessories for their character and engage in battle with enemies! </p>
+          </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="memeHubModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="memeHubLabel">MemeHub</h3>
+        </div>
+        <div class="modal-body">
+          <div id="left">
+            <img class="img-responsive"  src="images/MemeHubModal.png">
+          </div>
+          <div id="right">
+            <p>MemeHub is an image sharing site where users can both submit their own images and  swipe left and right to vote on other user's content.  As you swipe your newsfeed refines itself to only display the type of images you prefer to see.  If you only want images of puppies, images of puppies will be all that you see!</p>
+          </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="newsNetModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="memeHubLabel">NewsNet</h3>
+        </div>
+        <div class="modal-body">
+          <div id="left">
+            <img class="img-responsive"  src="images/NewsNetModal.png">
+          </div>
+          <div id="right">
+            <p>NewsNet is a news app that concentrates all of your favorite news sources into one application, thereby increasing your efficiency in keeping up with today's current events.  From ABC News to ESPN to TechCrunch, NewsNet allows users to keep tabs on events happening all around the globe! </p>
+          </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</body></html>
+
+
